@@ -1,0 +1,7 @@
+
+
+main_gtk: CFLAGS+= -DMY_USE_LIST
+main_gtk: CFLAGS+= `pkg-config --cflags gtk+-3.0`
+main_gtk: LDFLAGS+= `pkg-config --libs gtk+-3.0`
+main_gtk: main_gtk.o multimedia-object.o listMO.o managerMO-list.o test.o fichier.o callback-functions-managerMO.o IOFileManagerMO.o
+	$(CC) $^ $(LDFLAGS) -o $@
